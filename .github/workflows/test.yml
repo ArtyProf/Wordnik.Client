@@ -46,7 +46,7 @@ jobs:
           SONAR_OWNER: ${{ secrets.SONAR_OWNER }}
         run: |
           dotnet-sonarscanner begin /k:"$SONAR_PROJECT" /o:"$SONAR_OWNER" \
-          /d:sonar.login="$SONAR_TOKEN" \
+          /d:sonar.token="$SONAR_TOKEN" \
           /d:sonar.host.url="https://sonarcloud.io" \
           /d:sonar.test.exclusions="Tests/Wordnik.Client.IntegrationTests/**" \
           /d:sonar.coverage.exclusions="Docs/**,Demo/**" \
@@ -54,7 +54,7 @@ jobs:
 
       # Step 7: Build the Wordnik.Client project
       - name: Build Wordnik.Client
-        run: dotnet build ./Wordnik.Client/Wordnik.Client.csproj --no-restore --no-incremental
+        run: dotnet build ./Wordnik.Client.sln --no-restore --no-incremental
 
       # Step 8: Run Unit Tests with Coverage
       - name: Run Unit Tests
@@ -66,7 +66,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet-sonarscanner end /d:sonar.login="$SONAR_TOKEN"
+          dotnet-sonarscanner end /d:sonar.token="$SONAR_TOKEN"
 
       # Step 10: Run Integration Tests
       - name: Run Integration Tests
