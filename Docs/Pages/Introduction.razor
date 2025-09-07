@@ -1,0 +1,65 @@
+﻿@page "/"
+
+<RadzenRow class="rz-text-align-center rz-mb-5">
+    <RadzenColumn class="rz-p-1">
+        <a href="https://github.com/artyprof/Wordnik.Client" target="_blank">
+            <img src="https://img.shields.io/github/license/artyprof/Wordnik.Client?color=blue&label=license&logo=Github&style=flat-square" alt="License">
+        </a>
+    </RadzenColumn>
+    <RadzenColumn class="rz-p-1">
+        <a href="https://www.nuget.org/packages/Wordnik.Client" target="_blank">
+            <img src="https://img.shields.io/nuget/v/Wordnik.Client?label=version&logo=NuGet&style=flat-square" alt="Version">
+        </a>
+    </RadzenColumn>
+    <RadzenColumn class="rz-p-1">
+        <a href="https://www.nuget.org/packages/Wordnik.Client" target="_blank">
+            <img src="https://img.shields.io/nuget/dt/Wordnik.Client?color=blue&label=downloads&logo=NuGet&style=flat-square" alt="Downloads">
+        </a>
+    </RadzenColumn>
+    <RadzenColumn class="rz-p-1">
+        <a href="https://sonarcloud.io/summary/overall?id=ArtyProf_Wordnik.Client" target="_blank">
+            <img src="https://sonarcloud.io/api/project_badges/measure?project=ArtyProf_Wordnik.Client&metric=alert_status" alt="Quality Gate Status">
+        </a>
+    </RadzenColumn>
+    <RadzenColumn class="rz-p-1">
+        <a href="https://sonarcloud.io/summary/overall?id=ArtyProf_Wordnik.Client" target="_blank">
+            <img src="https://sonarcloud.io/api/project_badges/measure?project=ArtyProf_Wordnik.Client&metric=coverage" alt="Coverage">
+        </a>
+    </RadzenColumn>
+</RadzenRow>
+
+<RadzenCard Style="padding: 16px;">
+    <!-- Title -->
+    <RadzenLabel Text="Wordnik.Client" Class="rz-text-h4 rz-mb-5" />
+    <br />
+    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="4" class="rz-mt-4">
+        <RadzenLabel Text="Wordnik.Client is a .NET client library for interacting with the " />
+        <RadzenLink Text="Wordnik API" Href="https://wordnik.com" Target="_blank" Style="color: #007bff; text-decoration: none;" />
+    </RadzenStack>
+
+    <br />
+
+    <!-- Features Section -->
+    <RadzenLabel Text="Features" Class="rz-text-h6 rz-mt-4" />
+    <ul style="margin-bottom: 16px; list-style-type: disc; padding-left: 20px;">
+        <li>Seamless and easy-to-use API integration.</li>
+        <li>Built for .NET Standard 2.1, enabling cross-platform support.</li>
+    </ul>
+
+    <!-- Implemented APIs Section -->
+    <RadzenLabel Text="Implemented Wordnik APIs" Class="rz-text-h6 rz-mt-4" />
+    <ul style="margin-bottom: 16px; list-style-type: disc; padding-left: 20px;">
+        <li>Definitions</li>
+        <li>Examples</li>
+        <li>Frequency</li>
+    </ul>
+
+    <!-- Installation Section -->
+    <RadzenLabel Text="Installation" Class="rz-text-h6 rz-mt-4" />
+    
+    <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" class="rz-mt-4">
+        <RadzenLabel Text="Install the library via NuGet:" />
+        <RadzenTextBox Value="dotnet add package Wordnik.Client" ReadOnly="true" Style="width:100%; margin-bottom: 8px;" />
+    </RadzenStack>
+
+</RadzenCard>
