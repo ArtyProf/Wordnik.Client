@@ -9,7 +9,7 @@ on:
 jobs:
   publish:
     name: Build, Sign, and Publish to NuGet
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       # Step 1: Checkout repository
@@ -20,7 +20,8 @@ jobs:
       - name: Decode SNK File
         env:
           SNK_FILE_BASE64: ${{ secrets.SNK_FILE_BASE64 }}
-        run: echo "$SNK_FILE_BASE64" | base64 --decode > ./Wordnik.Client/WordnikClientKey.snk
+        run: echo "$SNK_FILE_BASE64" | powershell -Command "[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(\"$Env:SNK_FILE_BASE64\")) | Out-File -FilePath ./Wordnik.Client/WordnikClientKey.snk"
+
 
       # Step 3: Restore, Build, and Pack the NuGet Package
       - name: Build and Pack NuGet Package
@@ -31,10 +32,11 @@ jobs:
 
           dotnet restore ./Wordnik.Client/Wordnik.Client.csproj
           dotnet build --configuration Release /p:SignAssemblyCondition=true /p:AssemblyOriginatorKeyFile=WordnikClientKey.snk ./Wordnik.Client/Wordnik.Client.csproj
-          sn -v ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
             /p:Version="$VERSION" \
             /p:ReleaseNotes="${{ github.event.release.body }}"
+          sn -v ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
+
 
       # Step 4: Publish to NuGet
 #      - name: Publish to NuGet
