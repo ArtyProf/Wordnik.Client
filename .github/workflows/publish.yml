@@ -33,8 +33,10 @@ jobs:
           dotnet build --configuration Release /p:SignAssemblyCondition=true /p:AssemblyOriginatorKeyFile=WordnikClientKey.snk ./Wordnik.Client/Wordnik.Client.csproj
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
             /p:Version="$VERSION"
+          cd /home/runner/work/Wordnik.Client/Wordnik.Client
+
           dotnet add package SnTool
-          dotnet snool verify --assembly ./Wordnik.Client/Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
+          dotnet snool verify --assembly ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
 
       # Step 4: Publish to NuGet
 #      - name: Publish to NuGet
