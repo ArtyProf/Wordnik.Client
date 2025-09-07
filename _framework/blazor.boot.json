@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Wordnik.Client.Docs",
   "resources": {
-    "hash": "sha256-VC4bP+7RGA6RFyE+pjdO3ZtdJReZDW8fJ042RpyZfWE=",
+    "hash": "sha256-THL46/qAcd3HVBVOQ6qfaSYvbxTVIT8IBNJQVskAnVE=",
     "jsModuleNative": {
       "dotnet.native.8.0.19.ihm50f0zha.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -73,7 +73,7 @@
       "System.Web.HttpUtility.wasm": "sha256-hYCqq8IVJwTN9aSyA9IzVF3+9N1m/057OS/xgk37zy4=",
       "System.Xml.Linq.wasm": "sha256-oAlkzx4xNuSgra/830toYnENrm13HgDqZjumX1aRQRg=",
       "System.Xml.XDocument.wasm": "sha256-dqPgYNCDuoEagC7xkiU6xfjMuH2hUkAxC9CO/+hh8o4=",
-      "Wordnik.Client.Docs.wasm": "sha256-pPKMcIgP4xSki1RmrqQ8Cdy9qy492mHCvJQlKMM9FLw="
+      "Wordnik.Client.Docs.wasm": "sha256-hDsE0TZ9+0Jdxp+kdxwzz5e8PMWRMiYt4fpBjA1qC6k="
     }
   },
   "cacheBootResources": true,
