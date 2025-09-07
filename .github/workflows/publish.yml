@@ -34,8 +34,8 @@ jobs:
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
             /p:Version="$VERSION"
 
-          dotnet add package SnTool
-          dotnet snool verify --assembly /home/runner/work/Wordnik.Client/Wordnik.Client/Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
+          dotnet tool install --global SnTool # Install SnTool globally
+          ~/.dotnet/tools/snool verify --assembly ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
 
       # Step 4: Publish to NuGet
 #      - name: Publish to NuGet
