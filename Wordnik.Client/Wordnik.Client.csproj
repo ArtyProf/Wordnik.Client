@@ -11,21 +11,17 @@
     <Company>Arty_Prof</Company>
     <Description>Unofficial .NET client for the Wordnik API.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/ArtyProf/Wordnik.Client</PackageProjectUrl>
+    <PackageProjectUrl>https://artyprof.github.io/Wordnik.Client</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ArtyProf/Wordnik.Client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>dotnet net csharp wordnik dictionary thesaurus word words</PackageTags>
+    <PackageTags>wordnik dictionary thesaurus word words</PackageTags>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageReleaseNotes>$(ReleaseNotes)</PackageReleaseNotes>
-	  
-    <!-- Signing -->
-	<SignAssembly Condition="'$(SignAssemblyCondition)' == 'true'">true</SignAssembly>
-	<AssemblyOriginatorKeyFile Condition="'$(SignAssemblyCondition)' == 'true'">WordnikClientKey.snk</AssemblyOriginatorKeyFile>
 	  
 	<AssemblyTitle>Wordnik Client</AssemblyTitle>
     <AssemblyDescription>$(Description)</AssemblyDescription>
     <AssemblyCopyright>Copyright © Artur Khutak</AssemblyCopyright>
-    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <AssemblyVersion>0.2.0</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <InformationalVersion>$(Version)</InformationalVersion>
 	
