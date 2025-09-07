@@ -1,9 +1,10 @@
 name: Publish NuGet Package on Release
 
 on:
-  release:
-    types:
-      - published
+   push:
+#  release:
+#    types:
+#      - published
 
 jobs:
   publish:
@@ -30,15 +31,16 @@ jobs:
 
           dotnet restore ./Wordnik.Client/Wordnik.Client.csproj
           dotnet build --configuration Release /p:SignAssemblyCondition=true /p:AssemblyOriginatorKeyFile=WordnikClientKey.snk ./Wordnik.Client/Wordnik.Client.csproj
+          sn -v ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
             /p:Version="$VERSION" \
             /p:ReleaseNotes="${{ github.event.release.body }}"
 
       # Step 4: Publish to NuGet
-      - name: Publish to NuGet
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          dotnet nuget push ./Wordnik.Client/bin/Release/*.nupkg \
-            --source "https://api.nuget.org/v3/index.json" \
-            --api-key "$NUGET_API_KEY"
+#      - name: Publish to NuGet
+#        env:
+#          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+#        run: |
+#          dotnet nuget push ./Wordnik.Client/bin/Release/*.nupkg \
+#            --source "https://api.nuget.org/v3/index.json" \
+#            --api-key "$NUGET_API_KEY"
