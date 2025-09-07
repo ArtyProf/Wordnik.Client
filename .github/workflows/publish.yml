@@ -20,8 +20,11 @@ jobs:
       - name: Decode SNK File
         env:
           SNK_FILE_BASE64: ${{ secrets.SNK_FILE_BASE64 }}
-        run: echo "$SNK_FILE_BASE64" | powershell -Command "[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(\"$Env:SNK_FILE_BASE64\")) | Out-File -FilePath ./Wordnik.Client/WordnikClientKey.snk"
-
+        shell: pwsh
+        run: |
+          $Base64EncodedKey = "${{ secrets.SNK_FILE_BASE64 }}"
+          $DecodedKey = [System.Convert]::FromBase64String($Base64EncodedKey)
+          [System.IO.File]::WriteAllBytes("./Wordnik.Client/WordnikClientKey.snk", $DecodedKey)
 
       # Step 3: Restore, Build, and Pack the NuGet Package
       - name: Build and Pack NuGet Package
