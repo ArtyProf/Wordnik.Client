@@ -26,6 +26,10 @@ jobs:
           $DecodedKey = [System.Convert]::FromBase64String($Base64EncodedKey)
           [System.IO.File]::WriteAllBytes("./Wordnik.Client/WordnikClientKey.snk", $DecodedKey)
 
+      - name: Add .NET SDK Tools to PATH
+        run: |
+          $env:Path += ";C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools"
+        shell: pwsh
       # Step 3: Restore, Build, and Pack the NuGet Package
       - name: Build and Pack NuGet Package
         run: |
