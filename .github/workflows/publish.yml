@@ -33,9 +33,8 @@ jobs:
 
           dotnet restore ./Wordnik.Client/Wordnik.Client.csproj
           dotnet build --configuration Release /p:SignAssemblyCondition=true /p:AssemblyOriginatorKeyFile=WordnikClientKey.snk ./Wordnik.Client/Wordnik.Client.csproj
-          dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
-            /p:Version="$VERSION" \
-            /p:ReleaseNotes="${{ github.event.release.body }}"
+          dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj `
+            /p:Version="$VERSION" 
           sn -v ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
 
 
