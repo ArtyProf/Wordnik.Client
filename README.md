@@ -24,6 +24,7 @@ The full project documentation is available online via GitHub Pages:
 - definitions
 - examples
 - frequency
+- hyphenation
 
 ## Installation
 

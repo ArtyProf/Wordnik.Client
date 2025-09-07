@@ -99,5 +99,14 @@ namespace Wordnik.Client
                 request
             );
         }
+
+        /// <inheritdoc />
+        public async Task<IEnumerable<HyphenationResponse>> GetHyphenationAsync(GetHyphenationRequest request)
+        {
+            return await SendRequestAsync<GetHyphenationRequest,  IEnumerable<HyphenationResponse>>(
+                "hyphenation",
+                request
+            );
+        }
     }
 }

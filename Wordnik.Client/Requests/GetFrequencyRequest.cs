@@ -51,7 +51,6 @@ namespace Wordnik.Client.Requests
         {
             var queryParams = new List<string>();
 
-            // Ensure required parameters
             if (!string.IsNullOrWhiteSpace(Word))
             {
                 queryParams.Add($"word={Uri.EscapeDataString(Word)}");
