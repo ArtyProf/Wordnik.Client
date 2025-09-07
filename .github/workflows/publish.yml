@@ -25,15 +25,14 @@ jobs:
       # Step 3: Restore, Build, and Pack the NuGet Package
       - name: Build and Pack NuGet Package
         run: |
-          TAG_NAME="${{ github.event.release.tag_name }}"
+          TAG_NAME="1.0.0"
           VERSION=${TAG_NAME#v}
           echo "Extracted VERSION: $VERSION"
 
           dotnet restore ./Wordnik.Client/Wordnik.Client.csproj
           dotnet build --configuration Release /p:SignAssemblyCondition=true /p:AssemblyOriginatorKeyFile=WordnikClientKey.snk ./Wordnik.Client/Wordnik.Client.csproj
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
-            /p:Version="$VERSION" \
-            /p:ReleaseNotes="${{ github.event.release.body }}"
+            /p:Version="$VERSION"
           dotnet add package SnTool
           dotnet snool verify --assembly ./Wordnik.Client/bin/Release/netstandard2.1/Wordnik.Client.dll
 
