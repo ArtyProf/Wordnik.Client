@@ -18,6 +18,13 @@ namespace Wordnik.Client
         Task<IEnumerable<DefinitionResponse>> GetDefinitionsAsync(GetDefinitionsRequest request);
 
         /// <summary>
+        /// Retrieves etymology data for a given word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request containing the word and optional parameter for the API call.</param>
+        /// <returns>A task representing the asynchronous operation. The result is a list of etymology strings.</returns>
+        Task<string[]> GetEtymologiesAsync(GetEtymologiesRequest request);
+
+        /// <summary>
         /// Retrieves examples for a specific word from the Wordnik API using the provided parameters.
         /// </summary>
         /// <param name="request">The request model containing query parameters for the API call.</param>
@@ -37,12 +44,5 @@ namespace Wordnik.Client
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing hyphenation data for the word.</returns>
         Task<IEnumerable<HyphenationResponse>> GetHyphenationAsync(GetHyphenationRequest request);
-
-        /// <summary>
-        /// Retrieves etymology data for a given word from the Wordnik API.
-        /// </summary>
-        /// <param name="request">The request containing the word and optional parameter for the API call.</param>
-        /// <returns>A task representing the asynchronous operation. The result is a list of etymology strings.</returns>
-        Task<string[]> GetEtymologiesAsync(GetEtymologiesRequest request);
     }
 }
