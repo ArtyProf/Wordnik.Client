@@ -40,6 +40,30 @@ public class WordsController : ControllerBase
         }
     }
 
+    [HttpGet("etymologies")]
+    public async Task<ActionResult<string[]>> GetEtymologies([FromQuery] GetEtymologiesRequest request)
+    {
+        if (request == null)
+        {
+            return BadRequest("The request is required.");
+        }
+
+        try
+        {
+            var definitions = await _wordnikClient.GetEtymologiesAsync(request);
+
+            return Ok(definitions);
+        }
+        catch (HttpRequestException ex)
+        {
+            return StatusCode(500, $"Error communicating with Wordnik API: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An unexpected error occurred: {ex.Message}");
+        }
+    }
+
     [HttpGet("examples")]
     public async Task<ActionResult<ExamplesResponse>> GetExamples([FromQuery] GetExamplesRequest request)
     {
@@ -75,6 +99,30 @@ public class WordsController : ControllerBase
         try
         {
             var definitions = await _wordnikClient.GetFrequencyAsync(request);
+
+            return Ok(definitions);
+        }
+        catch (HttpRequestException ex)
+        {
+            return StatusCode(500, $"Error communicating with Wordnik API: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An unexpected error occurred: {ex.Message}");
+        }
+    }
+
+    [HttpGet("hyphenation")]
+    public async Task<ActionResult<IEnumerable<HyphenationResponse>>> GetHyphenation([FromQuery] GetHyphenationRequest request)
+    {
+        if (request == null)
+        {
+            return BadRequest("The request is required.");
+        }
+
+        try
+        {
+            var definitions = await _wordnikClient.GetHyphenationAsync(request);
 
             return Ok(definitions);
         }

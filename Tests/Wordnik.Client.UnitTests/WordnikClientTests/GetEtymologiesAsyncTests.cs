@@ -8,13 +8,15 @@ namespace Wordnik.Client.UnitTests.WordnikClientTests;
 
 public class GetEtymologiesAsyncTests
 {
+    private static readonly string[] value =
+        [
+            "A representative form or pattern."
+        ];
+
     [Fact]
     public async Task GetEtymologiesAsync_ShouldConstructCorrectUrlAndReturnData()
     {
-        var responseContent = JsonConvert.SerializeObject(new string[]
-        {
-            "A representative form or pattern."
-        });
+        var responseContent = JsonConvert.SerializeObject(value);
 
         var request = new GetEtymologiesRequest { Word = "example" };
         var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/{WordnikConstants.Etymologies}?{request}";
