@@ -43,6 +43,6 @@ namespace Wordnik.Client
         /// </summary>
         /// <param name="request">The request containing the word and optional parameter for the API call.</param>
         /// <returns>A task representing the asynchronous operation. The result is a list of etymology strings.</returns>
-        Task<EtymologiesResponse> GetEtymologiesAsync(GetEtymologiesRequest request);
+        Task<string[]> GetEtymologiesAsync(GetEtymologiesRequest request);
     }
 }

@@ -11,12 +11,9 @@ public class GetEtymologiesAsyncTests
     [Fact]
     public async Task GetEtymologiesAsync_ShouldConstructCorrectUrlAndReturnData()
     {
-        var responseContent = JsonConvert.SerializeObject(new EtymologiesResponse
+        var responseContent = JsonConvert.SerializeObject(new string[]
         {
-            Etymologies =
-            [
-                "A representative form or pattern."
-            ]
+            "A representative form or pattern."
         });
 
         var request = new GetEtymologiesRequest { Word = "example" };
@@ -30,7 +27,7 @@ public class GetEtymologiesAsyncTests
             assertions: response =>
             {
                 Assert.NotNull(response);
-                Assert.Equal("A representative form or pattern.", response.Etymologies.First());
+                Assert.Equal("A representative form or pattern.", response.First());
             });
     }
 

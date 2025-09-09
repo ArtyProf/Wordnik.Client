@@ -9,6 +9,8 @@ public abstract class IntegrationTestBase
     protected readonly HttpClient _httpClient;
     protected readonly IConfiguration _configuration;
 
+    private const int RequestDelayInMilliseconds = 1000; // 1 second delay
+
     protected IntegrationTestBase()
     {
         _configuration = new ConfigurationBuilder()
@@ -25,4 +27,6 @@ public abstract class IntegrationTestBase
             BaseAddress = new Uri(WordnikConstants.WordnikApiUrl)
         };
     }
+
+    protected async Task ThrottleAsync() => await Task.Delay(RequestDelayInMilliseconds);
 }

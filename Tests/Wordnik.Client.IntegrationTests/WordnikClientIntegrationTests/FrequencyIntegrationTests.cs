@@ -20,6 +20,7 @@ public class FrequencyIntegrationTests : IntegrationTestBase
         var yearsBetween = endYear - startYear + 1;
 
         // Act
+        await ThrottleAsync();
         var frequencies = await client.GetFrequencyAsync(request);
 
         // Assert

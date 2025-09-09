@@ -17,6 +17,7 @@ public class HyphenationIntegrationTests : IntegrationTestBase
         };
 
         // Act
+        await ThrottleAsync();
         var hyphenationFragments = await client.GetHyphenationAsync(request);
 
         // Assert

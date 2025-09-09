@@ -22,6 +22,7 @@ The full project documentation is available online via GitHub Pages:
 ## Implemented Wordnik APIs
 
 - definitions
+- etymologies
 - examples
 - frequency
 - hyphenation

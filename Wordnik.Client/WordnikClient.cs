@@ -82,9 +82,9 @@ namespace Wordnik.Client
         }
 
         /// <inheritdoc />
-        public async Task<EtymologiesResponse> GetEtymologiesAsync(GetEtymologiesRequest request)
+        public async Task<string[]> GetEtymologiesAsync(GetEtymologiesRequest request)
         {
-            return await SendRequestAsync<GetEtymologiesRequest, EtymologiesResponse>(
+            return await SendRequestAsync<GetEtymologiesRequest, string[]>(
                 WordnikConstants.Etymologies,
                 request
             );
