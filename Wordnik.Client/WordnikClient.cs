@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -77,7 +76,16 @@ namespace Wordnik.Client
         public async Task<IEnumerable<DefinitionResponse>> GetDefinitionsAsync(GetDefinitionsRequest request)
         {
             return await SendRequestAsync<GetDefinitionsRequest, IEnumerable<DefinitionResponse>>(
-                "definitions",
+                WordnikConstants.Definitions,
+                request
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<string[]> GetEtymologiesAsync(GetEtymologiesRequest request)
+        {
+            return await SendRequestAsync<GetEtymologiesRequest, string[]>(
+                WordnikConstants.Etymologies,
                 request
             );
         }
@@ -86,7 +94,7 @@ namespace Wordnik.Client
         public async Task<ExamplesResponse> GetExamplesAsync(GetExamplesRequest request)
         {
             return await SendRequestAsync<GetExamplesRequest, ExamplesResponse>(
-                "examples",
+                WordnikConstants.Examples,
                 request
             );
         }
@@ -95,7 +103,7 @@ namespace Wordnik.Client
         public async Task<FrequencyResponse> GetFrequencyAsync(GetFrequencyRequest request)
         {
             return await SendRequestAsync<GetFrequencyRequest, FrequencyResponse>(
-                "frequency",
+                WordnikConstants.Frequency,
                 request
             );
         }
@@ -104,7 +112,7 @@ namespace Wordnik.Client
         public async Task<IEnumerable<HyphenationResponse>> GetHyphenationAsync(GetHyphenationRequest request)
         {
             return await SendRequestAsync<GetHyphenationRequest,  IEnumerable<HyphenationResponse>>(
-                "hyphenation",
+                WordnikConstants.Hyphenation,
                 request
             );
         }

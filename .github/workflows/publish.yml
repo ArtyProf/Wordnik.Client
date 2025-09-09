@@ -26,6 +26,7 @@ jobs:
           dotnet build --configuration Release ./Wordnik.Client/Wordnik.Client.csproj
           dotnet pack --configuration Release ./Wordnik.Client/Wordnik.Client.csproj \
             /p:Version="$VERSION" \
+            /p:ContinuousIntegrationBuild=true \
             /p:ReleaseNotes="${{ github.event.release.body }}"
 
       # Step 3: Publish to NuGet

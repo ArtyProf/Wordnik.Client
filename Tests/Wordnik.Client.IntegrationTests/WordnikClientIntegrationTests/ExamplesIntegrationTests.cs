@@ -18,6 +18,7 @@ public class ExamplesIntegrationTests : IntegrationTestBase
         };
 
         // Act
+        await ThrottleAsync();
         var examples = await client.GetExamplesAsync(request);
 
         // Assert

@@ -18,6 +18,7 @@ public class DefinitionsIntegrationTests : IntegrationTestBase
         };
 
         // Act
+        await ThrottleAsync();
         var definitions = await client.GetDefinitionsAsync(request);
 
         // Assert

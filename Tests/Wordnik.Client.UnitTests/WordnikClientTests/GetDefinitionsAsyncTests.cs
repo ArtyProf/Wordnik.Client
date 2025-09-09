@@ -17,7 +17,7 @@ public class GetDefinitionsAsyncTests
         });
 
         var request = new GetDefinitionsRequest { Word = "example", Limit = 1 };
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/definitions?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/{WordnikConstants.Definitions}?{request}";
 
         await WordnikTestHelper.RunGenericApiMethodTest(
             mockResponseContent: responseContent,
@@ -61,7 +61,7 @@ public class GetDefinitionsAsyncTests
     public async Task GetDefinitionsAsync_HttpResponseIsNotSuccess_ShouldThrowHttpRequestException()
     {
         var request = new GetDefinitionsRequest { Word = "example" };
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/definitions?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/{WordnikConstants.Definitions}?{request}";
 
         await WordnikTestHelper.RunHttpFailureTest(
             statusCode: HttpStatusCode.BadRequest,

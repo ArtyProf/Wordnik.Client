@@ -17,7 +17,7 @@ public class GetHyphenationAsyncTests
         });
 
         var request = new GetHyphenationRequest { Word = "example", Limit = 1 };
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/hyphenation?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/{WordnikConstants.Hyphenation}?{request}";
 
         await WordnikTestHelper.RunGenericApiMethodTest(
             mockResponseContent: responseContent,
@@ -61,7 +61,7 @@ public class GetHyphenationAsyncTests
     public async Task GetHyphenationAsync_HttpResponseIsNotSuccess_ShouldThrowHttpRequestException()
     {
         var request = new GetHyphenationRequest { Word = "example" };
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/hyphenation?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/example/{WordnikConstants.Hyphenation}?{request}";
 
         await WordnikTestHelper.RunHttpFailureTest(
             statusCode: HttpStatusCode.BadRequest,
