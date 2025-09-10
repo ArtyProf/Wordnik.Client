@@ -73,6 +73,15 @@ namespace Wordnik.Client
         }
 
         /// <inheritdoc />
+        public async Task<IEnumerable<AudioResponse>> GetAudioAsync(GetAudioRequest request)
+        {
+            return await SendRequestAsync<GetAudioRequest, IEnumerable<AudioResponse>>(
+                WordnikConstants.Audio,
+                request
+            );
+        }
+
+        /// <inheritdoc />
         public async Task<IEnumerable<DefinitionResponse>> GetDefinitionsAsync(GetDefinitionsRequest request)
         {
             return await SendRequestAsync<GetDefinitionsRequest, IEnumerable<DefinitionResponse>>(
