@@ -21,6 +21,7 @@ The full project documentation is available online via GitHub Pages:
 
 ## Implemented Wordnik APIs
 
+- audio
 - definitions
 - etymologies
 - examples
