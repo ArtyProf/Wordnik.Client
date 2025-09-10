@@ -41,5 +41,10 @@ namespace Wordnik.Client.Helpers
         /// The "hyphenation" resource keyword used in the Word API.
         /// </summary>
         public const string Hyphenation = "hyphenation";
+
+        /// <summary>
+        /// The "audio" resource keyword used in the Word API.
+        /// </summary>
+        public const string Audio = "audio";
     }
 }

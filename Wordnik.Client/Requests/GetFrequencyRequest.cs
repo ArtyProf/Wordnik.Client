@@ -9,22 +9,14 @@ namespace Wordnik.Client.Requests
     public class GetFrequencyRequest : IWord
     {
         /// <summary>
-        /// Gets or sets the word to retrieve frequency data for.
-        /// This is a <b>required</b> parameter.
+        /// Gets or sets the word to return examples for. This is a required parameter.
         /// </summary>
-        /// <example>example</example>
         public string Word { get; set; }
 
         /// <summary>
         /// Gets or sets whether to use the canonical form of the word (e.g., transform 'cats' to 'cat').
-        /// If <c>true</c>, the canonical form of the word will be returned.
-        /// If <c>false</c>, the exact word as provided will be used.
-        /// Default is <c>false</c>.
+        /// This is an optional parameter. Defaults to <c>false</c>.
         /// </summary>
-        /// <remarks>
-        /// Canonicalization ensures queries are mapped to the root word, such as 'cats' -> 'cat'.
-        /// </remarks>
-        /// <example>false</example>
         public bool? UseCanonical { get; set; }
 
         /// <summary>

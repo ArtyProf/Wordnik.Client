@@ -11,6 +11,8 @@ public class WordsController : ControllerBase
 {
     private readonly IWordnikClient _wordnikClient;
 
+    private const string BadRequestResponse = "The request is required.";
+
     public WordsController(IWordnikClient wordnikClient)
     {
         _wordnikClient = wordnikClient ?? throw new ArgumentNullException(nameof(wordnikClient));
@@ -21,7 +23,7 @@ public class WordsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest("The request is required.");
+            return BadRequest(BadRequestResponse);
         }
 
         try
@@ -45,7 +47,7 @@ public class WordsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest("The request is required.");
+            return BadRequest(BadRequestResponse);
         }
 
         try
@@ -69,7 +71,7 @@ public class WordsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest("The request is required.");
+            return BadRequest(BadRequestResponse);
         }
 
         try
@@ -93,7 +95,7 @@ public class WordsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest("The request is required.");
+            return BadRequest(BadRequestResponse);
         }
 
         try
@@ -117,7 +119,7 @@ public class WordsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest("The request is required.");
+            return BadRequest(BadRequestResponse);
         }
 
         try

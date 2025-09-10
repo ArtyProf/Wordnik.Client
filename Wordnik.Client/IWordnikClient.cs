@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Wordnik.Client.Requests;
 using Wordnik.Client.Responses;
@@ -10,6 +12,13 @@ namespace Wordnik.Client
     /// </summary>
     public interface IWordnikClient
     {
+        /// <summary>
+        /// Fetches the audio metadata for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">Request model for retrieving definitions from the Wordnik API.</param>
+        /// <returns>A list of audio metadata.</returns>
+        Task<IEnumerable<AudioResponse>> GetAudioAsync(GetAudioRequest request);
+
         /// <summary>
         /// Fetches definitions of a word from Wordnik API.
         /// </summary>
