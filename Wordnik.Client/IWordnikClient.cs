@@ -53,5 +53,12 @@ namespace Wordnik.Client
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing hyphenation data for the word.</returns>
         Task<IEnumerable<HyphenationResponse>> GetHyphenationAsync(GetHyphenationRequest request);
+
+        /// <summary>
+        /// Retrieves text pronunciations for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing text pronunciations for the word.</returns>
+        Task<IEnumerable<PronunciationResponse>> GetPronunciationAsync(GetPronunciationRequest request);
     }
 }

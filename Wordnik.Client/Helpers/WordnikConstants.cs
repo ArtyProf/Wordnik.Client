@@ -18,6 +18,11 @@ namespace Wordnik.Client.Helpers
         public const string WordnikApiKeyName = "api_key";
 
         /// <summary>
+        /// The "audio" resource keyword used in the Word API.
+        /// </summary>
+        public const string Audio = "audio";
+
+        /// <summary>
         /// The "definitions" resource keyword used in the Word API.
         /// </summary>
         public const string Definitions = "definitions";
@@ -43,8 +48,8 @@ namespace Wordnik.Client.Helpers
         public const string Hyphenation = "hyphenation";
 
         /// <summary>
-        /// The "audio" resource keyword used in the Word API.
+        /// The "pronunciations" resource keyword used in the Word API.
         /// </summary>
-        public const string Audio = "audio";
+        public const string Pronunciation = "pronunciations";
     }
 }

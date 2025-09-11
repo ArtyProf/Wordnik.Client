@@ -125,5 +125,13 @@ namespace Wordnik.Client
                 request
             );
         }
+        /// <inheritdoc />
+        public async Task<IEnumerable<PronunciationResponse>> GetPronunciationAsync(GetPronunciationRequest request)
+        {
+            return await SendRequestAsync<GetPronunciationRequest, IEnumerable<PronunciationResponse>>(
+                WordnikConstants.Pronunciation,
+                request
+            );
+        }
     }
 }
