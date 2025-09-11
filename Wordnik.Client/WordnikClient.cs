@@ -143,5 +143,14 @@ namespace Wordnik.Client
                 request
             );
         }
+
+        /// <inheritdoc />
+        public async Task<ScrabbleScoreResponse> GetScrabbleScoreAsync(GetScrabbleScoreRequest request)
+        {
+            return await SendRequestAsync<GetScrabbleScoreRequest, ScrabbleScoreResponse>(
+                WordnikConstants.ScrabbleScore,
+                request
+            );
+        }
     }
 }

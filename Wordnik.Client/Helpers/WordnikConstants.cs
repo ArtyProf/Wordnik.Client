@@ -56,5 +56,10 @@ namespace Wordnik.Client.Helpers
         /// The "relatedWords" resource keyword used in the Word API.
         /// </summary>
         public const string RelatedWords = "relatedWords";
+
+        /// <summary>
+        /// The "scrabbleScore" resource keyword used in the Word API.
+        /// </summary>
+        public const string ScrabbleScore = "scrabbleScore";
     }
 }

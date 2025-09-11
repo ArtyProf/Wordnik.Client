@@ -29,6 +29,7 @@ The full project documentation is available online via GitHub Pages:
 - hyphenation
 - pronunciations
 - related words
+- scrabble score
 
 ## Installation
 
