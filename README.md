@@ -27,6 +27,7 @@ The full project documentation is available online via GitHub Pages:
 - examples
 - frequency
 - hyphenation
+- pronunciations
 
 ## Installation
 

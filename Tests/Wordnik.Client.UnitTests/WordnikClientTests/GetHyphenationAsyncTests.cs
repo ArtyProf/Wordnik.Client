@@ -9,7 +9,7 @@ namespace Wordnik.Client.UnitTests.WordnikClientTests;
 public class GetHyphenationAsyncTests
 {
     [Fact]
-    public async Task GetDefinitionsAsync_ShouldConstructCorrectUrlAndReturnData()
+    public async Task GetHyphenationAsync_ShouldConstructCorrectUrlAndReturnData()
     {
         var responseContent = JsonConvert.SerializeObject(new List<HyphenationResponse>
         {
