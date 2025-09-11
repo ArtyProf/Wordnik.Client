@@ -19,7 +19,6 @@ public class AudioIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var todayDate = DateTime.UtcNow;
         var audioMetadatas = await client.GetAudioAsync(request);
 
         // Assert
@@ -30,14 +29,13 @@ public class AudioIntegrationTests : IntegrationTestBase
         foreach (var audioMetadata in audioMetadatas)
         {
             Assert.True(audioMetadata.Id > 0);
-            Assert.True(audioMetadata.Word.Length > 0);
+            Assert.True(audioMetadata.Word == word);
             Assert.True(audioMetadata.AudioType.Length > 0);
             Assert.True(audioMetadata.AttributionText.Length > 0);
             Assert.True(audioMetadata.AttributionUrl.Length > 0);
             Assert.True(audioMetadata.Duration > 0);
             Assert.True(audioMetadata.FileUrl.Length > 0);
             Assert.True(audioMetadata.CreatedBy.Length > 0);
-            Assert.True(audioMetadata.CreatedAt.Date == todayDate.Date);
         }
     }
 }

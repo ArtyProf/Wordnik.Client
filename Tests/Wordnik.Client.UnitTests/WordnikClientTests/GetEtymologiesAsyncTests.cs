@@ -2,7 +2,6 @@
 using System.Net;
 using Wordnik.Client.Helpers;
 using Wordnik.Client.Requests;
-using Wordnik.Client.Responses;
 
 namespace Wordnik.Client.UnitTests.WordnikClientTests;
 

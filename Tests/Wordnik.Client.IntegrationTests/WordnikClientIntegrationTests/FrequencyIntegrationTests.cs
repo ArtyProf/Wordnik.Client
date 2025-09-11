@@ -27,7 +27,7 @@ public class FrequencyIntegrationTests : IntegrationTestBase
         Assert.NotNull(frequencies);
         Assert.NotEmpty(frequencies.FrequenciesByYears);
         Assert.Equal(yearsBetween, frequencies.FrequenciesByYears.Count);
-        Assert.True(frequencies.Word.Length > 0);
+        Assert.True(frequencies.Word == word);
         Assert.True(frequencies.TotalCount > 0);
         Assert.True(frequencies.UnknownYearCount > 0);
 

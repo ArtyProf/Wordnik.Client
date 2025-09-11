@@ -9,7 +9,7 @@ public abstract class IntegrationTestBase
     protected readonly HttpClient _httpClient;
     protected readonly IConfiguration _configuration;
 
-    private const int RequestDelayInMilliseconds = 2000; // 2 second delay
+    private const int RequestDelayInMilliseconds = 5000; // 5 second delay
 
     protected IntegrationTestBase()
     {

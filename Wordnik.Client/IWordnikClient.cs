@@ -72,7 +72,14 @@ namespace Wordnik.Client
         /// Retrieves scrabble score for a specific word from the Wordnik API.
         /// </summary>
         /// <param name="request">The request model containing query parameters for the API call.</param>
-        /// <returns>A response object containing  scrabble score for the word.</returns>
+        /// <returns>A response object containing scrabble score for the word.</returns>
         Task<ScrabbleScoreResponse> GetScrabbleScoreAsync(GetScrabbleScoreRequest request);
+
+        /// <summary>
+        /// Retrieves top example for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing top example for the word.</returns>
+        Task<TopExampleResponse> GetTopExampleAsync(GetTopExampleRequest request);
     }
 }

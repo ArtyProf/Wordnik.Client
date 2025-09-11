@@ -30,6 +30,7 @@ The full project documentation is available online via GitHub Pages:
 - pronunciations
 - related words
 - scrabble score
+- top result
 
 ## Installation
 

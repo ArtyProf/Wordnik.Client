@@ -152,5 +152,14 @@ namespace Wordnik.Client
                 request
             );
         }
+
+        /// <inheritdoc />
+        public async Task<TopExampleResponse> GetTopExampleAsync(GetTopExampleRequest request)
+        {
+            return await SendRequestAsync<GetTopExampleRequest, TopExampleResponse>(
+                WordnikConstants.TopExample,
+                request
+            );
+        }
     }
 }

@@ -61,5 +61,10 @@ namespace Wordnik.Client.Helpers
         /// The "scrabbleScore" resource keyword used in the Word API.
         /// </summary>
         public const string ScrabbleScore = "scrabbleScore";
+
+        /// <summary>
+        /// The "topExample" resource keyword used in the Word API.
+        /// </summary>
+        public const string TopExample = "topExample";
     }
 }
