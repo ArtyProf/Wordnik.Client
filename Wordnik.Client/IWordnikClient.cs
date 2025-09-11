@@ -60,5 +60,12 @@ namespace Wordnik.Client
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing text pronunciations for the word.</returns>
         Task<IEnumerable<PronunciationResponse>> GetPronunciationAsync(GetPronunciationRequest request);
+
+        /// <summary>
+        /// Retrieves related words for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing related words for the word.</returns>
+        Task<IEnumerable<RelatedWordsResponse>> GetRelatedWordsAsync(GetRelatedWordsRequest request);
     }
 }

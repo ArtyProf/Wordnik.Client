@@ -51,5 +51,10 @@ namespace Wordnik.Client.Helpers
         /// The "pronunciations" resource keyword used in the Word API.
         /// </summary>
         public const string Pronunciation = "pronunciations";
+
+        /// <summary>
+        /// The "relatedWords" resource keyword used in the Word API.
+        /// </summary>
+        public const string RelatedWords = "relatedWords";
     }
 }

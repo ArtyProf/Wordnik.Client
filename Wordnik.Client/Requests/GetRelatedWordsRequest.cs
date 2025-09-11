@@ -6,13 +6,12 @@ using Wordnik.Client.Helpers;
 namespace Wordnik.Client.Requests
 {
     /// <summary>
-    /// Represents the request model for the Wordnik API hyphenation endpoint.
+    /// Represents the request to fetch word relationship types from the API.
     /// </summary>
-    public class GetHyphenationRequest : IWord
+    public class GetRelatedWordsRequest : IWord
     {
         /// <summary>
-        /// Gets or sets the word for which syllables or hyphenation details are requested.
-        /// This is a <b>required</b> field.
+        /// Gets or sets the word for which to fetch relationship types.
         /// </summary>
         public string Word { get; set; }
 
@@ -23,20 +22,19 @@ namespace Wordnik.Client.Requests
         public bool? UseCanonical { get; set; }
 
         /// <summary>
-        /// Get results from a single dictionary. Valid options are:
-        /// ahd-5, century, wiktionary, webster, wordnet.
+        /// Gets or sets a specific relationship type to filter by.
         /// </summary>
-        public SourceDictionariesType SourceDictionary { get; set; }
+        public RelationshipType RelationshipTypes { get; set; }
 
         /// <summary>
-        /// Gets or sets the maximum number of results to retrieve.
-        /// Default is 50.
+        /// Gets or sets the maximum number of results to return for each relationship type.
         /// </summary>
-        public int? Limit { get; set; }
+        public int LimitPerRelationshipType { get; set; }
 
         /// <summary>
-        /// Constructs the query string representation of all parameters for this request.
+        /// Constructs a query string from the request parameters.
         /// </summary>
+        /// <returns>A query string suitable for appending to the API URL.</returns>
         public override string ToString()
         {
             var queryParams = new List<string>();
@@ -48,17 +46,17 @@ namespace Wordnik.Client.Requests
 
             if (UseCanonical.HasValue)
             {
-                queryParams.Add($"useCanonical={UseCanonical.ToString().ToLower()}");
+                queryParams.Add($"useCanonical={UseCanonical.Value.ToString().ToLower()}");
             }
 
-            if (SourceDictionary != SourceDictionariesType.All)
+            if (RelationshipTypes != RelationshipType.All)
             {
-                queryParams.Add($"sourceDictionary={SourceDictionary.ToApiString()}");
+                queryParams.Add($"relationshipTypes={RelationshipTypes.ToApiString()}");
             }
 
-            if (Limit > 0)
+            if (LimitPerRelationshipType > 0)
             {
-                queryParams.Add($"limit={Limit}");
+                queryParams.Add($"limitPerRelationshipType={LimitPerRelationshipType}");
             }
 
             return string.Join("&", queryParams);
