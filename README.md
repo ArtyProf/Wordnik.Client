@@ -28,6 +28,7 @@ The full project documentation is available online via GitHub Pages:
 - frequency
 - hyphenation
 - pronunciations
+- related words
 
 ## Installation
 
