@@ -67,5 +67,12 @@ namespace Wordnik.Client
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing related words for the word.</returns>
         Task<IEnumerable<RelatedWordsResponse>> GetRelatedWordsAsync(GetRelatedWordsRequest request);
+
+        /// <summary>
+        /// Retrieves scrabble score for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing  scrabble score for the word.</returns>
+        Task<ScrabbleScoreResponse> GetScrabbleScoreAsync(GetScrabbleScoreRequest request);
     }
 }
