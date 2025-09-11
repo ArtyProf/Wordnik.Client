@@ -19,7 +19,7 @@ public class ExamplesIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var examples = await client.GetExamplesAsync(request);
+        var examples = await SendWithRetryAsync(() => client.GetExamplesAsync(request));
 
         // Assert
         Assert.NotNull(examples);

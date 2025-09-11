@@ -19,7 +19,7 @@ public class AudioIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var audioMetadatas = await client.GetAudioAsync(request);
+        var audioMetadatas = await SendWithRetryAsync(() => client.GetAudioAsync(request));
 
         // Assert
         Assert.NotNull(audioMetadatas);

@@ -19,7 +19,7 @@ public class DefinitionsIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var definitions = await client.GetDefinitionsAsync(request);
+        var definitions = await SendWithRetryAsync(() => client.GetDefinitionsAsync(request));
 
         // Assert
         Assert.NotNull(definitions);
