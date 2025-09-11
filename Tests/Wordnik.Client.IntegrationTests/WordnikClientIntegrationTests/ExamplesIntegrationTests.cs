@@ -30,7 +30,7 @@ public class ExamplesIntegrationTests : IntegrationTestBase
         {
             Assert.False(string.IsNullOrWhiteSpace(example.Text), "Definition text is missing.");
             Assert.True(example.Url.Length > 0);
-            Assert.True(example.Word.Length > 0);
+            Assert.True(example.Word == word);
             Assert.True(example.Title.Length > 0);
             Assert.NotNull(example.Year);
             Assert.NotNull(example.Provider?.Id);

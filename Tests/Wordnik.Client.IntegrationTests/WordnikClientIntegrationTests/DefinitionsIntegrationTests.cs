@@ -30,7 +30,7 @@ public class DefinitionsIntegrationTests : IntegrationTestBase
         {
             Assert.True(definition.Text.Length > 0);
             Assert.NotNull(definition.PartOfSpeech);
-            Assert.NotNull(definition.Word);
+            Assert.True(definition.Word == word);
             Assert.NotNull(definition.WordnikUrl);
         }
     }
