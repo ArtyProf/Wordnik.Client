@@ -9,7 +9,7 @@ public abstract class IntegrationTestBase
     protected readonly HttpClient _httpClient;
     protected readonly IConfiguration _configuration;
 
-    private const int RequestDelayInMilliseconds = 1000; // 1 second delay
+    private const int RequestDelayInMilliseconds = 2000; // 2 second delay
 
     protected IntegrationTestBase()
     {
@@ -28,5 +28,5 @@ public abstract class IntegrationTestBase
         };
     }
 
-    protected async Task ThrottleAsync() => await Task.Delay(RequestDelayInMilliseconds);
+    protected static async Task ThrottleAsync() => await Task.Delay(RequestDelayInMilliseconds);
 }
