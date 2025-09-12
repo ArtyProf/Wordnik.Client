@@ -26,8 +26,8 @@
     <InformationalVersion>$(Version)</InformationalVersion>
 	
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	  
-	<LangVersion>latest</LangVersion>
+
+	<LangVersion>8.0</LangVersion>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
