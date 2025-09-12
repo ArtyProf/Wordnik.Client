@@ -179,5 +179,14 @@ namespace Wordnik.Client
                 request
             );
         }
+
+        /// <inheritdoc />
+        public async Task<IEnumerable<RandomWordResponse>> GetRandomWordsAsync(GetRandomWordsRequest request)
+        {
+            return await SendRequestAsync<GetRandomWordsRequest, IEnumerable<RandomWordResponse>>(
+                WordnikConstants.RandomWords,
+                request
+            );
+        }
     }
 }

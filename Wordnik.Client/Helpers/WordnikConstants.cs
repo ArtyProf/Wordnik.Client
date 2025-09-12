@@ -71,5 +71,10 @@ namespace Wordnik.Client.Helpers
         /// The "randomWord" resource keyword used in the Word API.
         /// </summary>
         public const string RandomWord = "randomWord";
+
+        /// <summary>
+        /// The "randomWords" resource keyword used in the Word API.
+        /// </summary>
+        public const string RandomWords = "randomWords";
     }
 }
