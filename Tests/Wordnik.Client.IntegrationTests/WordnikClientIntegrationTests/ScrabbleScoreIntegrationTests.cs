@@ -18,7 +18,7 @@ public class ScrabbleScoreIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var scrabbleScore = await client.GetScrabbleScoreAsync(request);
+        var scrabbleScore = await SendWithRetryAsync(() => client.GetScrabbleScoreAsync(request));
 
         // Assert
         Assert.NotNull(scrabbleScore);

@@ -18,7 +18,7 @@ public class EtymologiesIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var etymologies = await client.GetEtymologiesAsync(request);
+        var etymologies = await SendWithRetryAsync(() => client.GetEtymologiesAsync(request));
 
         // Assert
         Assert.NotNull(etymologies);

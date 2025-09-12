@@ -21,7 +21,7 @@ public class FrequencyIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var frequencies = await client.GetFrequencyAsync(request);
+        var frequencies = await SendWithRetryAsync(() => client.GetFrequencyAsync(request));
 
         // Assert
         Assert.NotNull(frequencies);

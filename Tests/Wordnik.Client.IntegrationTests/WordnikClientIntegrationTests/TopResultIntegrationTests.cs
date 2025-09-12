@@ -18,7 +18,7 @@ public class TopResultIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var topExample = await client.GetTopExampleAsync(request);
+        var topExample = await SendWithRetryAsync(() => client.GetTopExampleAsync(request));
 
         // Assert
         Assert.NotNull(topExample);

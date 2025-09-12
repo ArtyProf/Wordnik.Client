@@ -18,7 +18,7 @@ public class HyphenationIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var hyphenationFragments = await client.GetHyphenationAsync(request);
+        var hyphenationFragments = await SendWithRetryAsync(() => client.GetHyphenationAsync(request));
 
         // Assert
         Assert.NotNull(hyphenationFragments);

@@ -31,6 +31,7 @@ The full project documentation is available online via GitHub Pages:
 - related words
 - scrabble score
 - top result
+- random word
 
 ## Installation
 

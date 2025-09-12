@@ -21,7 +21,7 @@ public class PronunciationIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var pronunciations = await client.GetPronunciationAsync(request);
+        var pronunciations = await SendWithRetryAsync(() => client.GetPronunciationAsync(request));
 
         // Assert
         Assert.NotNull(pronunciations);

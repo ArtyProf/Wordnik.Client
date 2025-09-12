@@ -19,7 +19,7 @@ public class RelatedWordsIntegrationTests : IntegrationTestBase
 
         // Act
         await ThrottleAsync();
-        var relatedWords = await client.GetRelatedWordsAsync(request);
+        var relatedWords = await SendWithRetryAsync(() => client.GetRelatedWordsAsync(request));
 
         // Assert
         Assert.NotNull(relatedWords);
