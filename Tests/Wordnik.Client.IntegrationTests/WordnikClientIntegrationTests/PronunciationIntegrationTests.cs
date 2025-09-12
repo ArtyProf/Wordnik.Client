@@ -8,7 +8,7 @@ public class PronunciationIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example", 3)]
-    public async Task GetPronunciations_WhenCalled_ShouldReturnDefinitions(string word, int limit)
+    public async Task GetPronunciations_WhenCalled_ShouldReturnPronunciations(string word, int limit)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);
