@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Wordnik.Client.Helpers;
@@ -48,21 +49,29 @@ namespace Wordnik.Client
         /// <param name="request">The request object containing query parameter and path placeholder values.</param>
         /// <returns>A <see cref="Task"/> containing the deserialized HTTP response.</returns>
         private async Task<TResponse> SendRequestAsync<TRequest, TResponse>(string apiPath, TRequest request)
-            where TRequest : IWord
         {
             if (EqualityComparer<TRequest>.Default.Equals(request, default))
             {
                 throw new ArgumentNullException(nameof(request), "Request object cannot be null.");
             }
 
-            if (string.IsNullOrWhiteSpace(request.Word))
+            var url = string.Empty;
+
+            if (request is IWord wordRequest)
             {
-                throw new ArgumentException("Word cannot be null or empty.", nameof(request));
+                if (string.IsNullOrWhiteSpace(wordRequest.Word))
+                {
+                    throw new ArgumentException("Word cannot be null or empty.", nameof(request));
+                }
+
+                url = $"word.json/{Uri.EscapeDataString(wordRequest.Word)}/{apiPath}?{request}";
+            }
+            else
+            {
+                url = $"word.json/{apiPath}?{request}";
             }
 
-            var url = $"word.json/{Uri.EscapeDataString(request.Word)}/{apiPath}?{request}";
-
-            var response = await _httpClient.GetAsync(url);
+                var response = await _httpClient.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 throw new HttpRequestException($"Request failed with status code {response.StatusCode}: {response.ReasonPhrase}");
@@ -158,6 +167,15 @@ namespace Wordnik.Client
         {
             return await SendRequestAsync<GetTopExampleRequest, TopExampleResponse>(
                 WordnikConstants.TopExample,
+                request
+            );
+        }
+
+        /// <inheritdoc />
+        public async Task<RandomWordResponse> GetRandomWordAsync(GetRandomWordRequest request)
+        {
+            return await SendRequestAsync<GetRandomWordRequest, RandomWordResponse>(
+                WordnikConstants.RandomWord,
                 request
             );
         }

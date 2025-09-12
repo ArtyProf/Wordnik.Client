@@ -81,5 +81,12 @@ namespace Wordnik.Client
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing top example for the word.</returns>
         Task<TopExampleResponse> GetTopExampleAsync(GetTopExampleRequest request);
+
+        /// <summary>
+        /// Retrieves a random word for a specific word from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing random word for the word.</returns>
+        Task<RandomWordResponse> GetRandomWordAsync(GetRandomWordRequest request);
     }
 }

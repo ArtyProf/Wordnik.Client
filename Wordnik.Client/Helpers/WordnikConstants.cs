@@ -66,5 +66,10 @@ namespace Wordnik.Client.Helpers
         /// The "topExample" resource keyword used in the Word API.
         /// </summary>
         public const string TopExample = "topExample";
+
+        /// <summary>
+        /// The "randomWord" resource keyword used in the Word API.
+        /// </summary>
+        public const string RandomWord = "randomWord";
     }
 }
