@@ -21,13 +21,13 @@
 	<AssemblyTitle>Wordnik Client</AssemblyTitle>
     <AssemblyDescription>$(Description)</AssemblyDescription>
     <AssemblyCopyright>Copyright © Artur Khutak</AssemblyCopyright>
-    <AssemblyVersion>0.2.0</AssemblyVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <InformationalVersion>$(Version)</InformationalVersion>
 	
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	  
-	<LangVersion>latest</LangVersion>
+
+	<LangVersion>8.0</LangVersion>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
