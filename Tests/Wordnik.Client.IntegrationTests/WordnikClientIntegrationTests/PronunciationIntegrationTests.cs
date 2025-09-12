@@ -31,12 +31,12 @@ public class PronunciationIntegrationTests : IntegrationTestBase
         {
             if (pronunciation.RawType == FormatType.Ahd5.ToApiString())
             {
-                Assert.True(pronunciation.Id.Length > 0);
+                Assert.False(string.IsNullOrWhiteSpace(pronunciation.Id), "Pronunciation Id must not be null or empty.");
             }
-            Assert.True(pronunciation.Raw.Length > 0);
-            Assert.True(pronunciation.RawType.Length > 0);
-            Assert.True(pronunciation.AttributionText.Length > 0);
-            Assert.True(pronunciation.AttributionUrl.Length > 0);
+            Assert.False(string.IsNullOrWhiteSpace(pronunciation.Raw), "Pronunciation Raw must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(pronunciation.RawType), "Pronunciation RawType must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(pronunciation.AttributionText), "Pronunciation AttributionText must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(pronunciation.AttributionUrl), "Pronunciation AttributionUrl must not be null or empty.");
         }
     }
 }

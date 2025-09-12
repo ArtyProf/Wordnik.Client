@@ -28,7 +28,7 @@ public class DefinitionsIntegrationTests : IntegrationTestBase
 
         foreach (var definition in definitions)
         {
-            Assert.True(definition.Text.Length > 0);
+            Assert.False(string.IsNullOrWhiteSpace(definition.Text), "Definition text must not be null or empty.");
             Assert.NotNull(definition.PartOfSpeech);
             Assert.True(definition.Word == word);
             Assert.NotNull(definition.WordnikUrl);

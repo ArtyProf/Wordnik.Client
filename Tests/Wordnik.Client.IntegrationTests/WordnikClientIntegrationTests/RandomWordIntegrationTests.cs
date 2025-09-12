@@ -30,6 +30,6 @@ public class RandomWordIntegrationTests : IntegrationTestBase
 
         // Assert
         Assert.NotNull(randomWord);
-        Assert.True(randomWord.Word.Length > 0);
+        Assert.False(string.IsNullOrWhiteSpace(randomWord.Word), "Random word must not be null or empty.");
     }
 }

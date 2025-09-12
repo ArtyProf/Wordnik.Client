@@ -28,14 +28,14 @@ public class AudioIntegrationTests : IntegrationTestBase
 
         foreach (var audioMetadata in audioMetadatas)
         {
-            Assert.True(audioMetadata.Id > 0);
-            Assert.True(audioMetadata.Word == word);
-            Assert.True(audioMetadata.AudioType.Length > 0);
-            Assert.True(audioMetadata.AttributionText.Length > 0);
-            Assert.True(audioMetadata.AttributionUrl.Length > 0);
-            Assert.True(audioMetadata.Duration > 0);
-            Assert.True(audioMetadata.FileUrl.Length > 0);
-            Assert.True(audioMetadata.CreatedBy.Length > 0);
+            Assert.True(audioMetadata.Id > 0, "Audio Id must be greater than zero.");
+            Assert.Equal(word, audioMetadata.Word);
+            Assert.False(string.IsNullOrWhiteSpace(audioMetadata.AudioType), "AudioType must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(audioMetadata.AttributionText), "AttributionText must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(audioMetadata.AttributionUrl), "AttributionUrl must not be null or empty.");
+            Assert.True(audioMetadata.Duration > 0, "Duration must be greater than zero.");
+            Assert.False(string.IsNullOrWhiteSpace(audioMetadata.FileUrl), "FileUrl must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(audioMetadata.CreatedBy), "CreatedBy must not be null or empty.");
         }
     }
 }

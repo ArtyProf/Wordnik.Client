@@ -27,11 +27,11 @@ public class HyphenationIntegrationTests : IntegrationTestBase
 
         foreach (var hyphenation in hyphenationFragments)
         {
-            Assert.True(hyphenation.Text.Length > 0);
+            Assert.False(string.IsNullOrWhiteSpace(hyphenation.Text), "Hyphenation Text must not be null or empty.");
 
             if (hyphenation.Text != hyphenationFragments.First().Text)
             {
-                Assert.True(hyphenation.Sequence > 0);
+                Assert.True(hyphenation.Sequence > 0, "Hyphenation Sequence must be greater than zero for non-initial fragments.");
             }
         }
     }

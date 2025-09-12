@@ -28,13 +28,13 @@ public class FrequencyIntegrationTests : IntegrationTestBase
         Assert.NotEmpty(frequencies.FrequenciesByYears);
         Assert.Equal(yearsBetween, frequencies.FrequenciesByYears.Count);
         Assert.True(frequencies.Word == word);
-        Assert.True(frequencies.TotalCount > 0);
-        Assert.True(frequencies.UnknownYearCount > 0);
+        Assert.True(frequencies.TotalCount > 0, "TotalCount must be greater than zero.");
+        Assert.True(frequencies.UnknownYearCount > 0, "UnknownYearCount must be greater than zero.");
 
         foreach (var frequency in frequencies.FrequenciesByYears)
         {
-            Assert.True(frequency.Year.Length > 0);
-            Assert.True(frequency.Count > 0);
+            Assert.False(string.IsNullOrWhiteSpace(frequency.Year), "Frequency Year must not be null or empty.");
+            Assert.True(frequency.Count > 0, "Frequency Count must be greater than zero.");
         }
     }
 }

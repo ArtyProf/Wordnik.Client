@@ -38,7 +38,7 @@ public class RandomWordsIntegrationTests : IntegrationTestBase
 
         foreach (var randomWord in randomWords)
         {
-            Assert.True(randomWord.Word.Length > 0);
+            Assert.False(string.IsNullOrWhiteSpace(randomWord.Word), "Random word must not be null or empty.");
         }
     }
 }
