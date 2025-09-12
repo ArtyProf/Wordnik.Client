@@ -188,5 +188,14 @@ namespace Wordnik.Client
                 request
             );
         }
+
+        /// <inheritdoc />
+        public async Task<WordOfTheDayResponse> GetWordOfTheDayAsync(GetWordOfTheDayRequest request)
+        {
+            return await SendRequestAsync<GetWordOfTheDayRequest, WordOfTheDayResponse>(
+                WordnikConstants.WordOfTheDay,
+                request
+            );
+        }
     }
 }
