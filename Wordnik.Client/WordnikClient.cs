@@ -68,10 +68,10 @@ namespace Wordnik.Client
             }
             else
             {
-                url = $"word.json/{apiPath}?{request}";
+                url = $"words.json/{apiPath}?{request}";
             }
 
-                var response = await _httpClient.GetAsync(url);
+            var response = await _httpClient.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 throw new HttpRequestException($"Request failed with status code {response.StatusCode}: {response.ReasonPhrase}");

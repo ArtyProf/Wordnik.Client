@@ -17,7 +17,7 @@ public class GetRandomWordAsyncTests
         });
 
         var request = new GetRandomWordRequest();
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/{WordnikConstants.RandomWord}?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}words.json/{WordnikConstants.RandomWord}?{request}";
 
         await WordnikTestHelper.RunGenericApiMethodTest(
             mockResponseContent: responseContent,
@@ -43,7 +43,7 @@ public class GetRandomWordAsyncTests
     public async Task GetRandomWordAsync_HttpResponseIsNotSuccess_ShouldThrowHttpRequestException()
     {
         var request = new GetRandomWordRequest();
-        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}word.json/{WordnikConstants.RandomWord}?{request}";
+        var expectedUrl = $"{WordnikConstants.WordnikApiUrl}words.json/{WordnikConstants.RandomWord}?{request}";
 
         await WordnikTestHelper.RunHttpFailureTest(
             statusCode: HttpStatusCode.BadRequest,
