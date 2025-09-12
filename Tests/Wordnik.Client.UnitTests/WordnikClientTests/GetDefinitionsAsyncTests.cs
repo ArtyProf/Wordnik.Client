@@ -13,7 +13,47 @@ public class GetDefinitionsAsyncTests
     {
         var responseContent = JsonConvert.SerializeObject(new List<DefinitionResponse>
         {
-            new() { Text = "A representative form or pattern." }
+            new()
+            {
+                Text = "A representative form or pattern.",
+                Word = "example",
+                AttributionText = "From Wordnik",
+                AttributionUrl = "https://www.wordnik.com",
+                WordnikUrl = "https://www.wordnik.com/words/example",
+                Citations =
+                [
+                    new() { Cite = "Oxford Dictionary", Source = "Book" }
+                ],
+                ExampleUses =
+                [
+                    new() { Text = "Example usage in a sentence." }
+                ],
+                ExtendedText = "An extended explanation of the word.",
+                Labels =
+                [
+                    new() { Type = "region", Text = "US" }
+                ],
+                Notes =
+                [
+                    new() { Type = "editorial", Text = "Additional editorial note." }
+                ],
+                PartOfSpeech = "noun",
+                RelatedWords =
+                [
+                    new() {
+                        RelationshipType = "synonym",
+                        Words = ["sample", "specimen"]
+                    }
+                ],
+                Score = 100.0,
+                SeqString = "1",
+                Sequence = "1",
+                SourceDictionary = "WordNet",
+                TextProns =
+                [
+                    new() { Raw = "ig-zam-puhl", RawType = "IPA" }
+                ]
+            }
         });
 
         var request = new GetDefinitionsRequest { Word = "example", Limit = 1 };
@@ -28,7 +68,55 @@ public class GetDefinitionsAsyncTests
             {
                 Assert.NotNull(response);
                 Assert.Single(response);
-                Assert.Equal("A representative form or pattern.", response.First().Text);
+
+                var definition = response.First();
+                Assert.Equal("A representative form or pattern.", definition.Text);
+                Assert.Equal("example", definition.Word);
+                Assert.Equal("From Wordnik", definition.AttributionText);
+                Assert.Equal("https://www.wordnik.com", definition.AttributionUrl);
+                Assert.Equal("https://www.wordnik.com/words/example", definition.WordnikUrl);
+                Assert.Equal("An extended explanation of the word.", definition.ExtendedText);
+                Assert.Equal("noun", definition.PartOfSpeech);
+                Assert.Equal("WordNet", definition.SourceDictionary);
+                Assert.Equal("1", definition.SeqString);
+                Assert.Equal("1", definition.Sequence);
+                Assert.Equal(100.0, definition.Score);
+
+                Assert.NotNull(definition.Citations);
+                Assert.NotEmpty(definition.Citations);
+                var citation = definition.Citations.First();
+                Assert.Equal("Oxford Dictionary", citation.Cite);
+                Assert.Equal("Book", citation.Source);
+
+                Assert.NotNull(definition.ExampleUses);
+                Assert.NotEmpty(definition.ExampleUses);
+                var exampleUse = definition.ExampleUses.First();
+                Assert.Equal("Example usage in a sentence.", exampleUse.Text);
+
+                Assert.NotNull(definition.Labels);
+                Assert.NotEmpty(definition.Labels);
+                var label = definition.Labels.First();
+                Assert.Equal("region", label.Type);
+                Assert.Equal("US", label.Text);
+
+                Assert.NotNull(definition.Notes);
+                Assert.NotEmpty(definition.Notes);
+                var note = definition.Notes.First();
+                Assert.Equal("editorial", note.Type);
+                Assert.Equal("Additional editorial note.", note.Text);
+
+                Assert.NotNull(definition.RelatedWords);
+                Assert.NotEmpty(definition.RelatedWords);
+                var relatedWord = definition.RelatedWords.First();
+                Assert.Equal("synonym", relatedWord.RelationshipType);
+                Assert.NotNull(relatedWord.Words);
+                Assert.Equal(new List<string> { "sample", "specimen" }, relatedWord.Words);
+
+                Assert.NotNull(definition.TextProns);
+                Assert.NotEmpty(definition.TextProns);
+                var textPron = definition.TextProns.First();
+                Assert.Equal("ig-zam-puhl", textPron.Raw);
+                Assert.Equal("IPA", textPron.RawType);
             });
     }
 

@@ -22,7 +22,7 @@ public class EtymologiesIntegrationTests : IntegrationTestBase
 
         // Assert
         Assert.NotNull(etymologies);
-        Assert.True(etymologies.First().Length > 0);
+        Assert.False(string.IsNullOrWhiteSpace(etymologies.First()), "Etymology must not be null or empty.");
         Assert.Contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", etymologies.First());
     }
 }

@@ -38,7 +38,7 @@ public class GetRandomWordsRequestTests
     )]
     [InlineData(
         // Case 7: No parts of speech, no sorting, only corpus and dictionary limits
-        true, null, null, 5, 10, 2, 4, null, null, null, null, 5,
+        true, null, null, 5, 10, 2, 4, null, null, SortByType.NotSet, SortOrderType.NotSet, 5,
         "hasDictionaryDef=true&minCorpusCount=5&maxCorpusCount=10&minDictionaryCount=2&maxDictionaryCount=4&limit=5"
     )]
     public void ToString_ShouldGenerateCorrectQueryString(

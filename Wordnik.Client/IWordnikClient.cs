@@ -83,17 +83,24 @@ namespace Wordnik.Client
         Task<TopExampleResponse> GetTopExampleAsync(GetTopExampleRequest request);
 
         /// <summary>
-        /// Retrieves a random word for a specific word from the Wordnik API.
+        /// Retrieves a random word from the Wordnik API.
         /// </summary>
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing random word.</returns>
         Task<RandomWordResponse> GetRandomWordAsync(GetRandomWordRequest request);
 
         /// <summary>
-        /// Retrieves random words for a specific word from the Wordnik API.
+        /// Retrieves random words from the Wordnik API.
         /// </summary>
         /// <param name="request">The request model containing query parameters for the API call.</param>
         /// <returns>A response object containing random words.</returns>
         Task<IEnumerable<RandomWordResponse>> GetRandomWordsAsync(GetRandomWordsRequest request);
+
+        /// <summary>
+        /// Retrieves word of the day from the Wordnik API.
+        /// </summary>
+        /// <param name="request">The request model containing query parameters for the API call.</param>
+        /// <returns>A response object containing word of the day.</returns>
+        Task<WordOfTheDayResponse> GetWordOfTheDayAsync(GetWordOfTheDayRequest request);
     }
 }

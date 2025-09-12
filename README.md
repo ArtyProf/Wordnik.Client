@@ -33,6 +33,7 @@ The full project documentation is available online via GitHub Pages:
 - top result
 - random word
 - random words
+- word of the day
 
 ## Installation
 

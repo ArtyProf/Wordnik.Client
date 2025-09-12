@@ -22,14 +22,15 @@ public class TopResultIntegrationTests : IntegrationTestBase
 
         // Assert
         Assert.NotNull(topExample);
-        Assert.True(topExample.Year > 0);
-        Assert.True(topExample.Word == word);
-        Assert.True(topExample.Rating > 0);
-        Assert.True(topExample.Provider.Id > 0);
-        Assert.True(topExample.Url.Length > 0);
-        Assert.True(topExample.Text.Length > 0);
-        Assert.True(topExample.Title.Length > 0);
-        Assert.True(topExample.DocumentId > 0);
-        Assert.True(topExample.ExampleId > 0);
+        Assert.Equal(word, topExample.Word);
+        Assert.True(topExample.Year > 0, "Year must be greater than zero.");
+        Assert.True(topExample.Rating > 0, "Rating must be greater than zero.");
+        Assert.NotNull(topExample.Provider);
+        Assert.True(topExample.Provider.Id > 0, "Provider.Id must be greater than zero.");
+        Assert.False(string.IsNullOrWhiteSpace(topExample.Url), "URL must not be null or empty.");
+        Assert.False(string.IsNullOrWhiteSpace(topExample.Text), "Text must not be null or empty.");
+        Assert.False(string.IsNullOrWhiteSpace(topExample.Title), "Title must not be null or empty.");
+        Assert.True(topExample.DocumentId > 0, "DocumentId must be greater than zero.");
+        Assert.True(topExample.ExampleId > 0, "ExampleId must be greater than zero.");
     }
 }

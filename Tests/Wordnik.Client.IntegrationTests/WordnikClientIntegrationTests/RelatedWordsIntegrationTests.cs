@@ -27,9 +27,12 @@ public class RelatedWordsIntegrationTests : IntegrationTestBase
 
         foreach (var relatedWord in relatedWords)
         {
-            Assert.True(relatedWord.Words.Count > 0 && relatedWord.Words.Count <= limitPerRelationshipType);
-            Assert.True(relatedWord.Words.All(x => x.Length > 0));
-            Assert.True(relatedWord.RelationshipType.Length > 0);
+            Assert.NotNull(relatedWord.Words);
+            Assert.InRange(relatedWord.Words.Count, 1, limitPerRelationshipType);
+            Assert.All(relatedWord.Words, word =>
+                Assert.False(string.IsNullOrWhiteSpace(word), "Word in RelatedWord.Words must not be null or empty.")
+            );
+            Assert.False(string.IsNullOrWhiteSpace(relatedWord.RelationshipType), "RelatedWord.RelationshipType must not be null or empty.");
         }
     }
 }

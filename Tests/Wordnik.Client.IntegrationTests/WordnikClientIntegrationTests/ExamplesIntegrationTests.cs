@@ -28,15 +28,15 @@ public class ExamplesIntegrationTests : IntegrationTestBase
 
         foreach (var example in examples.Examples)
         {
-            Assert.False(string.IsNullOrWhiteSpace(example.Text), "Definition text is missing.");
-            Assert.True(example.Url.Length > 0);
-            Assert.True(example.Word == word);
-            Assert.True(example.Title.Length > 0);
+            Assert.False(string.IsNullOrWhiteSpace(example.Text), "Example text must not be null or empty.");
+            Assert.False(string.IsNullOrWhiteSpace(example.Url), "Example URL must not be null or empty.");
+            Assert.Equal(word, example.Word);
+            Assert.False(string.IsNullOrWhiteSpace(example.Title), "Example title must not be null or empty.");
             Assert.NotNull(example.Year);
             Assert.NotNull(example.Provider?.Id);
-            Assert.True(example.DocumentId > 0);
-            Assert.True(example.Rating > 0);
-            Assert.True(example.ExampleId > 0);
+            Assert.True(example.DocumentId > 0, "Document ID must be greater than zero.");
+            Assert.True(example.Rating > 0, "Rating must be greater than zero.");
+            Assert.True(example.ExampleId > 0, "Example ID must be greater than zero.");
         }
     }
 }

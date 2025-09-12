@@ -22,6 +22,6 @@ public class ScrabbleScoreIntegrationTests : IntegrationTestBase
 
         // Assert
         Assert.NotNull(scrabbleScore);
-        Assert.True(scrabbleScore.Value > 0);
+        Assert.True(scrabbleScore.Value > 0, "ScrabbleScore.Value must be greater than zero.");
     }
 }
