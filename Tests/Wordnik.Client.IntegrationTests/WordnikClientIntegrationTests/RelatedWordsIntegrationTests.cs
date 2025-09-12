@@ -6,7 +6,7 @@ public class RelatedWordsIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example", 3)]
-    public async Task GetRelatedWords_WhenCalled_ShouldReturnDefinitions(string word, int limitPerRelationshipType)
+    public async Task GetRelatedWords_WhenCalled_ShouldReturnRelatedWords(string word, int limitPerRelationshipType)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);

@@ -6,7 +6,7 @@ public class TopResultIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example")]
-    public async Task GetTopExample_WhenCalled_ShouldReturnDefinitions(string word)
+    public async Task GetTopExample_WhenCalled_ShouldReturnTopExample(string word)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);

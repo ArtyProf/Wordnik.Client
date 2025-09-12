@@ -6,7 +6,7 @@ public class EtymologiesIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example")]
-    public async Task GetEtymologies_WhenCalled_ShouldReturnDefinitions(string word)
+    public async Task GetEtymologies_WhenCalled_ShouldReturnEtymologies(string word)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);

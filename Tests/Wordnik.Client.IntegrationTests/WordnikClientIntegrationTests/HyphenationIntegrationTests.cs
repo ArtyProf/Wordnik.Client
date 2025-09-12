@@ -6,7 +6,7 @@ public class HyphenationIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example")]
-    public async Task GetHyphenation_WhenCalled_ShouldReturnDefinitions(string word)
+    public async Task GetHyphenation_WhenCalled_ShouldReturnHyphenation(string word)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);

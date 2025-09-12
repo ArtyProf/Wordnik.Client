@@ -6,7 +6,7 @@ public class ScrabbleScoreIntegrationTests : IntegrationTestBase
 {
     [Theory]
     [InlineData("example")]
-    public async Task GetScrabbleScore_WhenCalled_ShouldReturnDefinitions(string word)
+    public async Task GetScrabbleScore_WhenCalled_ShouldReturnScrabbleScore(string word)
     {
         // Arrange
         var client = new WordnikClient(_httpClient, _apiKey);
